@@ -9,6 +9,8 @@ export default class IndexComponent extends Component {
       this.state = {serverports: []};
     }
     componentDidMount(){
+      // http://localhost:4200/serverport
+      //http://restez:123restez@ds151864.mlab.com:51864/restez/
       axios.get('http://localhost:4200/serverport')
       .then(response => {
         this.setState({ serverports: response.data });

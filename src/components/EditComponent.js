@@ -13,6 +13,9 @@ export default class EditComponent extends Component {
     }
 
     componentDidMount() {
+        //'http://localhost:4200/serverport/edit/'
+        //http://restez:123restez@ds151864.mlab.com:51864/restez/add
+        //
         axios.get('http://localhost:4200/serverport/edit/'+this.props.match.params.id)
             .then(response => {
                 this.setState({ name: response.data.name, port: response.data.port });
@@ -38,6 +41,8 @@ export default class EditComponent extends Component {
             name: this.state.name,
             port: this.state.port
         }
+        //http://localhost:4200/serverport/update/'
+        //http://restez:123restez@ds151864.mlab.com:51864/restez/
         axios.post('http://localhost:4200/serverport/update/'+this.props.match.params.id, serverport)
         .then(res => console.log(res.data));
         this.setState({
